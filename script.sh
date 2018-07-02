@@ -12,14 +12,13 @@
 
 ## Functions
 onoe() { # prints our defined error message 
-  if [[ -t 2 ]] # check whether stderr is a tty.
+  if [[ -t 2 ]]; # check whether stderr is a tty.
   then
     echo -ne "\033[4;31mError\033[0m: " >&2 # highlight Error with underline and red color
   else
     echo -n "Error: " >&2
   fi
-  if [[ $# -eq 0 ]]
-  then
+  if [[ $# -eq 0 ]]; then
     /bin/cat >&2
   else
     echo "$*" >&2
